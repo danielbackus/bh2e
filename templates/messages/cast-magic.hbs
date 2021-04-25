@@ -1,0 +1,22 @@
+<p>
+{{#ritual}}
+    {{localize "bh2e.messages.blurbs.castsRitual"}} - {{spellName}}
+{{/ritual}}
+{{^ritual}}
+    {{localize "bh2e.messages.blurbs.casts"}} - {{spellName}}
+{{/ritual}}
+</p>
+
+{{> "systems/bh2e/templates/messages/roll.hbs" roll}}
+
+{{#lost}}
+<p class="bh2e-spell-unprepared">
+    {{localize "bh2e.messages.blurbs.spellLost"}}
+</p>
+{{/lost}}
+
+{{#miscast}}
+<p class="bh2e-spell-miscast">
+    {{localize "bh2e.messages.blurbs.spellMiscast"}}
+</p>
+{{/miscast}}
