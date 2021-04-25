@@ -1,5 +1,9 @@
-<div class="bh2e-prayers-tab bh2e-tab-content bh2e-hidden">
+<div class="bh2e-spells-tab bh2e-tab-content bh2e-hidden">
+{{#hasPrayers}}
+    <h3 class="bh2e-magic-level-title">Prayers</h3>
+    <hr>
     {{#prayers}}
-        {{> "systems/bh2e/templates/partials/prayer-entry.hbs"}}
+        {{> "systems/bh2e/templates/partials/spell-entry.hbs"}}
     {{/prayers}}
+{{/hasPrayers}}
 </div>

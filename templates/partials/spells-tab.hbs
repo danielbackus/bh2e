@@ -1,8 +1,9 @@
 <div class="bh2e-spells-tab bh2e-tab-content bh2e-hidden">
-    <!--<a class="bh2e-action-link bh2e-cast-magic-as-ritual-icon" href="#" title="{{localize "bh2e.fields.titles.castSpellAsRitual"}}">
-                <i class="fas fa-book-reader"></i>
-    </a>-->
+{{#hasSpells}}
+    <h3 class="bh2e-magic-level-title">Spells</h3>
+    <hr>
     {{#spells}}
         {{> "systems/bh2e/templates/partials/spell-entry.hbs"}}
     {{/spells}}
+{{/hasSpells}}
 </div>

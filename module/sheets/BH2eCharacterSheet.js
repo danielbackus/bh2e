@@ -95,8 +95,8 @@ export default class BH2eCharacterSheet extends ActorSheet {
         data.armour       = armour;
         data.classes      = classes;
         data.equipment    = equipment;
-        data.hasPrayers = prayers.length;
-        data.hasSpells = spells.length;
+        data.hasPrayers = prayers.length > 0;
+        data.hasSpells = spells.length > 0;
         data.prayers = prayers;
         data.spells = spells;
         data.weapons      = weapons;
