@@ -101,6 +101,8 @@ export default class BH2eCharacterSheet extends ActorSheet {
         data.spells = spells;
         data.weapons      = weapons;
 
+        console.log({ data });
+
         return(data);
     }
 
