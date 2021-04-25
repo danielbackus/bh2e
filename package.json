@@ -1,0 +1,20 @@
+{
+  "name": "bh2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bh2e.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielbackus/bh2e.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielbackus/bh2e/issues"
+  },
+  "homepage": "https://github.com/danielbackus/bh2e#readme"
+}

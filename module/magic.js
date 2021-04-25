@@ -88,9 +88,11 @@ function invokeMagic(magicId, caster) {
                          rollType:      "standard",
                          spellLevel:    parseInt(magic.data.data.level),
                          spellName:     magic.name,
-                         successful:    false}
+                         successful:    false,
+                         magicKind: magic.data.data.kind}
     let total         = 0;
 
+    if (result.magicKind === "prayer") return { ...result, successful: true };
     if(event.shiftKey) {
         if(!magic.data.data.cast) {
             options.kind = result.rollType = "advantage";
@@ -99,7 +101,7 @@ function invokeMagic(magicId, caster) {
         options.kind = result.rollType = "disadvantage";
     }
     attribute     = (magic.data.data.kind === "prayer" ? "wisdom" : "intelligence");
-    formula       = `${generateDieRollFormula(options)}+${result.spellLevel}`;
+    formula       = `${generateDieRollFormula(options)}`;
     attributeTest = new Roll(formula);
     attributeTest.roll();
     result.attribute     = attribute;

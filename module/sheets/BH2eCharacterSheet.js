@@ -20,13 +20,13 @@ export default class BH2eCharacterSheet extends ActorSheet {
     }
 
     getData() {
-        let data    = super.getData();
-        let abilities = [];
-        let armour    = [];
-        let classes   = [];
-        let equipment = [];
-        let prayers   = [[], [], [], [], [], [], [], [], [], []];
-        let spells    = [[], [], [], [], [], [], [], [], [], []];
+        const data    = super.getData();
+        const abilities = [];
+        const armour    = [];
+        const classes   = [];
+        const equipment = [];
+        const prayers   = [];
+        const spells = [];
         let weapons   = [];
 
         data.bh2e      = CONFIG.bh2e;
@@ -53,22 +53,22 @@ export default class BH2eCharacterSheet extends ActorSheet {
                 case "magic":
                     let index = item.data.level - 1;
 
-                    if(index >= 0 && index < spells.length) {
+                    // if(index >= 0 && index < spells.length) {
                         switch(item.data.kind) {
                             case "prayer":
-                                prayers[index].push(item);
+                                prayers.push(item);
                                 break;
 
                             case "spell":
-                                spells[index].push(item);
+                                spells.push(item);
                                 break;
 
                             default:
                                 console.warn("Ignoring character item magic", item);
                         }
-                    } else {
-                        console.error(`An invalid level of ${item.data.level} was specified for a spell or prayer.`, item);
-                    }
+                    // } else {
+                    //     console.error(`An invalid level of ${item.data.level} was specified for a spell or prayer.`, item);
+                    // }
                     break;
 
                 case "weapon":
@@ -94,46 +94,10 @@ export default class BH2eCharacterSheet extends ActorSheet {
         data.armour       = armour;
         data.classes      = classes;
         data.equipment    = equipment;
-        data.hasPrayers1  = (prayers[0].length > 0)
-        data.hasPrayers2  = (prayers[1].length > 0)
-        data.hasPrayers3  = (prayers[2].length > 0)
-        data.hasPrayers4  = (prayers[3].length > 0)
-        data.hasPrayers5  = (prayers[4].length > 0)
-        data.hasPrayers6  = (prayers[5].length > 0)
-        data.hasPrayers7  = (prayers[6].length > 0)
-        data.hasPrayers8  = (prayers[7].length > 0)
-        data.hasPrayers9  = (prayers[8].length > 0)
-        data.hasPrayers10 = (prayers[9].length > 0)
-        data.hasSpells1   = (spells[0].length > 0)
-        data.hasSpells2   = (spells[1].length > 0)
-        data.hasSpells3   = (spells[2].length > 0)
-        data.hasSpells4   = (spells[3].length > 0)
-        data.hasSpells5   = (spells[4].length > 0)
-        data.hasSpells6   = (spells[5].length > 0)
-        data.hasSpells7   = (spells[6].length > 0)
-        data.hasSpells8   = (spells[7].length > 0)
-        data.hasSpells9   = (spells[8].length > 0)
-        data.hasSpells10  = (spells[9].length > 0)
-        data.prayers1     = prayers[0];
-        data.prayers2     = prayers[1];
-        data.prayers3     = prayers[2];
-        data.prayers4     = prayers[3];
-        data.prayers5     = prayers[4];
-        data.prayers6     = prayers[5];
-        data.prayers7     = prayers[6];
-        data.prayers8     = prayers[7];
-        data.prayers9     = prayers[8];
-        data.prayers10    = prayers[9];
-        data.spells1      = spells[0];
-        data.spells2      = spells[1];
-        data.spells3      = spells[2];
-        data.spells4      = spells[3];
-        data.spells5      = spells[4];
-        data.spells6      = spells[5];
-        data.spells7      = spells[6];
-        data.spells8      = spells[7];
-        data.spells9      = spells[8];
-        data.spells10     = spells[9];
+        data.hasPrayers = prayers.length;
+        data.hasSpells = spells.length;
+        data.prayers = prayers;
+        data.spells = spells;
         data.weapons      = weapons;
 
         return(data);
