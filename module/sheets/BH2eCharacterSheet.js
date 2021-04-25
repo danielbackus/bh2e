@@ -51,16 +51,17 @@ export default class BH2eCharacterSheet extends ActorSheet {
                     break;
 
                 case "magic":
-                    let index = item.data.level - 1;
-
+                    console.log()
                     // if(index >= 0 && index < spells.length) {
                         switch(item.data.kind) {
-                            case "prayer":
+                            case "prayer":                                
                                 prayers.push(item);
+                                console.log(`adding prayer: ${item}`, { prayers });
                                 break;
 
                             case "spell":
                                 spells.push(item);
+                                console.log(`adding spell: ${item}`, { spells });
                                 break;
 
                             default:
@@ -80,15 +81,15 @@ export default class BH2eCharacterSheet extends ActorSheet {
             }
         });
 
-        abilities.sort(function(lhs, rhs) {
-            if(lhs.name > rhs.name) {
-              return(1);
-            } else if(lhs.name < rhs.name) {
-              return(-1);
-            } else {
-              return(0);
-            }
-        });
+        // abilities.sort(function(lhs, rhs) {
+        //     if(lhs.name > rhs.name) {
+        //       return(1);
+        //     } else if(lhs.name < rhs.name) {
+        //       return(-1);
+        //     } else {
+        //       return(0);
+        //     }
+        // });
 
         data.abilities    = abilities;
         data.armour       = armour;
